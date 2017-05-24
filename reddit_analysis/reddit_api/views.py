@@ -13,9 +13,10 @@ def index(request):
 
 
 def reddit():
-	reddit = praw.Reddit(client_id='saksham15082',
-					 client_secret='aShhA_loQQT3l23p0uvjahQBAMg',
-					 user_agent='hello man')
-	# print(reddit.user.me())
-	for submission in reddit.subreddit('learnpython').hot(limit=10):
-		print(submission.title)
+	r = praw.Reddit(client_id='E__vNDwXxkyPjQ',
+				client_secret='aShhA_loQQT3l23p0uvjahQBAMg',
+				user_agent='insert user agent')
+	page = r.subreddit('aww')
+	top_posts = page.hot(limit=None)
+	for post in top_posts:
+		print(post.title, post.ups)
